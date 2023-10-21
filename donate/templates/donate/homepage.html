@@ -1,0 +1,54 @@
+{% extends 'donate/base.html' %}
+{% block title %} Donation Page {% endblock %}
+{% block content %}
+<div class="content">
+    <h1>Welcome to our Donation Page</h1>
+    <p>Your support helps us make a difference. Click the button below to make a donation.</p>
+
+    <form class="donation-form" method="post">
+        {% csrf_token %}
+        <label for="name">Name:</label>
+        <input type="text" id="name" name="name" placeholder="Enter your name" required>
+
+        <label for="name">Email:</label>
+        <input type="email" id="name" name="email" placeholder="Enter your mail" required>
+
+        <label for="amount">Amount:</label>
+        <input type="number" id="amount" name="amount" placeholder="Enter donation amount" required>
+
+        <button class="submit-button" type="submit">Submit</button>
+    </form>
+
+    {% if payment %}
+    <form action="/success/" method="POST">
+        <style>
+            .razorpay-payment-button {
+                background-color: #3399cc; /* Set the desired background color */
+                color: #fff; /* Set the text color */
+                border: none;
+                border-radius: 10px; /* Add rounded corners */
+                padding: 10px 20px; /* Adjust padding as needed */
+                cursor: pointer;
+            }
+        </style>
+        <script
+            src="https://checkout.razorpay.com/v1/checkout.js"
+            data-key="rzp_test_AKuJfkDNtU0xFa"
+            data-amount="{{ payment.amount }}"
+            data-currency="INR"
+            data-order_id="{{ payment.id }}"
+            data-buttontext="Pay with Razorpay"
+            data-name="Donation for a cause"
+            data-description="Test transaction"
+            data-image="https://example.com/your_logo.jpg"
+            data-prefill.name=""
+            data-prefill.email=""
+            data-prefill.contact=""
+            data-theme.color="#F37254"
+        ></script>
+        <input type="hidden" custom="Hidden Element" name="hidden">
+    </form>
+    {% endif %}
+</div>
+<div style="flex-grow: 1;"></div>
+{% endblock %}

@@ -1,0 +1,117 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %} {% endblock %}</title>
+    <style>
+        body {
+            text-align: center;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between; /* Vertically space elements */
+            align-items: center;
+            min-height: 100vh; /* Minimum full viewport height */
+            margin: 0;
+            background-color: #fcfefc; /* Set the background color */
+        }
+
+        /* Center the header, paragraph, and button */
+        .content {
+            flex-grow: 1; /* Expand to fill available space */
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+        .donation-form {
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+            text-align: left;
+            border: none; /* Remove the border */
+        }
+
+        .form-container {
+            flex-grow: 1; /* Expand to fill available space */
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        
+        }
+        form{
+            border: none;
+        }
+
+        h1 {
+            font-family: 'Sequel', sans-serif;
+            font-size: 72px;
+            color: #015450;
+        }
+
+        p {
+            font-size: 18px;
+            color: #528986;
+        }
+        label {
+            font-size: 18px;
+            font-family: 'Sequel', sans-serif;
+            color: #015450;
+            display: block;
+            margin-bottom: 5px;
+        }
+        input[type="text"],
+        input[type="number"],
+        input[type="email"]
+         {
+        width: 100%; /* Full-width input fields */
+        padding: 15px; /* Increase padding for larger text fields */
+        margin-bottom: 15px; /* Increase margin between text fields */
+        border: none; /* Remove the border from text fields */
+        border-radius: 0; /* Remove rounded corners from text fields */
+    }
+
+        .submit-button {
+            background-color: #015450; /* Same color as h1 */
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            cursor: pointer;
+            font-size: 20px;
+            border-radius: 10px; /* Slightly rounded corners */
+            display: block;
+            margin: 0 auto;
+        }
+
+        .donate-button {
+            background-color: #015450;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            cursor: pointer;
+            font-size: 20px;
+            border-radius: 20px;
+        }
+
+        /* Add styles for the footer */
+        footer {
+            background-color: #fcfefc;
+            padding: 10px;
+            font-size: 14px;
+            color: #015450;
+        }
+    </style>
+</head>
+<body>
+    <!-- Create a div to center the content -->
+    {% block content %}
+    {% endblock %}
+</body>
+<footer>
+    &copy; 2023 by donation. Proudly created with Shrikant Ramani
+</footer>
+</html>
+
